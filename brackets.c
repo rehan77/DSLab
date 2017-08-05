@@ -1,3 +1,4 @@
+#include<stdio.h>
 #include<ctype.h>
 #define MAX 100
 
@@ -26,17 +27,17 @@ int isMatchingpair(char left,char right)
 {
 switch(left)
  { 
-  case'(':
+  case '(':
          if(right==')')
          return 1;
          else
          return 0;
-  case'{':
+  case '{':
          if(right=='}')
          return 1;
 			else
 			return 0;
-  case'[':
+  case '[':
 			if(right==']')
          return 1;
 			else
@@ -47,11 +48,11 @@ switch(left)
  void checkbalanced(char exp[])  
  {
 	int i;
-	char stack s,c;
+	char c;
 	int top=-1,i=0;
 	while(exp[i]!='\0')
 	{ 	
-		if(exp[i]=='(','{','[')
+		if(exp[i]=='('||'{'||'[')
 		{
 			c.push(&s);
           }
@@ -70,18 +71,21 @@ switch(left)
 		  }
 			  if(isMatchingpair(c,exp[i]))
 			  {
-				  continue 
+	i++;
+				  continue;
+				 
 			  }
 			  else
 			  {
 				  printf("EXPRESSION INVALID");
 				  return;
-			  }
+			 }
+			 i++;
 		  }
 int main()
 {
 	char exp[30];
-	int result;
+	//int result;
 	printf("ENTER A EXPRESSION CONTAINING PARENTHESIS\n");
 	scanf("%s",exp);
    checkbalanced(exp);
